@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard in HTML CSS</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        background-color: #222222;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    .wrapper {
+        width: 60%;
+    }
+    
+    .wrapper .container {
+        min-width: 750px;
+        max-width: 1000px;
+        background: #111111;
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: -3px -3px 6px #000000, 2px 2px 4px rgba(95, 105, 122, .28);
+    }
+    
+    .container .keys {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .container .keys input {
+        height: 50px;
+        min-width: 50px;
+        padding: 10px;
+        margin: 15px;
+        outline: none;
+        border: none;
+        font-size: 20px;
+        color: #fefefe;
+        text-transform: uppercase;
+        background: #111111;
+        box-shadow: -3px -3px 6px #000000, 2px 2px 4px rgba(0, 0, 0, .28);
+        transition: .5s;
+        box-shadow: -3px -3px 3px #ff0000, 3px 3px 2px #1cec1c, 3px -4.5px 3px #0000cd, -4.5px 3px 3px #ffff00;
+    }
+    
+    .activee {
+        font-size: 40px;
+        box-shadow: -3px -3px 6px #000000, 2px 2px 4px rgba(0, 0, 0, .28);
+    }
+    
+    .container .keys input[value="Space"] {
+        width: 60%;
+        letter-spacing: 3px;
+    }
+    
+    .container .keys input[value="Enter"] {
+        width: 30%;
+        letter-spacing: 3px;
+    }
+    
+    .container .keys input:active {
+        font-size: 19px;
+        border-radius: 10px;
+        box-shadow: inset -1px 1px #ff0000, inset 1px 1px 2px #1cec1c, inset 1px -1px 1px #0000cd, inset -1px 1px 1px #ffff00;
+        color: #296d98;
+        border: none;
+    }
+    /* textarea */
+    
+    .wrapper .view {
+        width: 100%;
+        height: 150px;
+        margin-bottom: 20px;
+        user-select: none;
+    }
+    
+    .wrapper .container textarea {
+        height: 100%;
+        width: 100%;
+        border: none;
+        outline: none;
+        font-family: 'Courier New', Courier, monospace;
+        padding: 20px 15px 15px 20px;
+        background: #111111;
+        box-shadow: inset -3px -3px 6px #ff0000, inset 3px -3px 3px #1cec1c, inset -3px 3px 3px #0000cd, inset 3px -3px 3px #ffff00;
+        color: #1cec1c;
+        resize: none;
+        font-size: 20px;
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <form class="container" name="form">
+            <div class="view">
+                <textarea name="textarea" cols="30" rows="10"></textarea>
+            </div>
+            <div class="keys">
+                <input type="button" value="Q" name="q" onclick="disp(q.value)">
+                <input type="button" value="W" name="w" onclick="disp(w.value)">
+                <input type="button" value="E" name="e" onclick="disp(e.value)">
+                <input type="button" value="R" name="r" onclick="disp(r.value)">
+                <input type="button" value="T" name="t" onclick="disp(t.value)">
+                <input type="button" value="Y" name="y" onclick="disp(y.value)">
+                <input type="button" value="U" name="u" onclick="disp(u.value)">
+                <input type="button" value="I" name="i" onclick="disp(i.value)">
+                <input type="button" value="O" name="o" onclick="disp(o.value)">
+                <input type="button" value="P" name="p" onclick="disp(p.value)">
+            </div>
+            <div class="keys">
+                <input type="button" value="A" name="a" onclick="disp(a.value)">
+                <input type="button" value="S" name="s" onclick="disp(s.value)">
+                <input type="button" value="D" name="d" onclick="disp(d.value)">
+                <input type="button" value="F" name="f" onclick="disp(f.value)">
+                <input type="button" value="G" name="g" onclick="disp(g.value)">
+                <input type="button" value="H" name="h" onclick="disp(h.value)">
+                <input type="button" value="J" name="j" onclick="disp(j.value)">
+                <input type="button" value="K" name="k" onclick="disp(k.value)">
+                <input type="button" value="L" name="l" onclick="disp(l.value)">
+            </div>
+            <div class="keys">
+                <input type="button" value="Z" name="z" onclick="disp(z.value)">
+                <input type="button" value="X" name="x" onclick="disp(x.value)">
+                <input type="button" value="C" name="c" onclick="disp(c.value)">
+                <input type="button" value="V" name="v" onclick="disp(v.value)">
+                <input type="button" value="B" name="b" onclick="disp(b.value)">
+                <input type="button" value="N" name="n" onclick="disp(n.value)">
+                <input type="button" value="M" name="m" onclick="disp(m.value)">
+            </div>
+            <div class="keys">
+                <input type="button" value="Space" id="space">
+                <input type="button" value="Enter" id="back">
+
+            </div>
+        </form>
+    </div>
+    <script>
+        const spacebutton = document.querySelector("#space");
+        const backbutton = document.querySelector("#back");
+        const view = document.querySelector(".view");
+        const change = document.querySelector("#change");
+        var inputt = document.querySelectorAll("input");
+
+        function disp(result) {
+            form.textarea.value = form.textarea.value + result;
+            spacebutton.onclick = (() => {
+                form.textarea.value += " ";
+            });
+
+            backbutton.onclick = (() => {
+                form.textarea.value += "\n";
+            });
+            view.ondleclick = (() => {
+                form.textarea.value += " ";
+            });
+
+        }
+    </script>
+</body>
+
+</html>
